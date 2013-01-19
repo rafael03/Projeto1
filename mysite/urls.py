@@ -4,15 +4,17 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
 
-urlpatterns = patterns('',
-    url(r'^polls/$',                    'polls.views.index'),
+### Forma Antiga #########################
+#urlpatterns = patterns('',
+#    url(r'^polls/$',                    'polls.views.index'),
 #    url(r'^polls/(?P<poll_id>\d+)/$',   'polls.views.detail'),
-    url(r'^polls/(?P<poll_id>\d+)/detail/$',   'polls.views.detail'),
-    url(r'^polls/(?P<poll_id>\d+)/results/$', 'polls.views.results'),
-    url(r'^polls/(?P<poll_id>\d+)/vote/$',  'polls.views.vote'),
-    url(r'^polls/(?P<poll_id>\d+)/exibir/$',   'polls.views.exibir'),
-    url(r'^admin/', include(admin.site.urls)),
-
+#    url(r'^polls/(?P<poll_id>\d+)/detail.php/$',   'polls.views.detail'),
+#    url(r'^polls/(?P<poll_id>\d+)/results/$', 'polls.views.results'),
+#    url(r'^polls/(?P<poll_id>\d+)/vote/$',  'polls.views.vote'),
+#    url(r'^polls/(?P<poll_id>\d+)/exibir/$',   'polls.views.exibir'),
+#    url(r'^admin/', include(admin.site.urls)),
+#)
+###########################################
 
     # Examples:
     # url(r'^$', 'mysite.views.home', name='home'),
@@ -21,4 +23,9 @@ urlpatterns = patterns('',
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     # Uncomment the next line to enable the admin:
 
+#### Nova Forma Simplificada ###
+
+urlpatterns = patterns('',
+    url(r'^polls/', include('polls.urls')),
+    url(r'^admin/', include(admin.site.urls)),
 )
