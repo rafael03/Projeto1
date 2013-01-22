@@ -2,28 +2,24 @@
 <head>
 
 <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-
+<script type="text/javascript" src="/static/bootstrap/js/teste.js"></script> 
 </head>
 
 <body>
 <h1>{{ poll.question }}</h1>
+
+    <blockquote>
+    <p>Resultados.</p>
+    </blockquote>
 
 <ul>
 {% for choice in poll.choice_set.all %}
     <li>{{ choice.choice }} -- {{ choice.votes }} -- vote{{ choice.votes|pluralize }}</li>
 {% endfor %}
 </ul>
-
-<a href="/polls/{{ poll.id }}/" class="btn btn-primary"> Vote again?</a>
-
     <div class="form-actions">
-    <button type="submit" class="btn btn-primary">Save changes</button>
-    <button type="button" class="btn">Cancel</button>
+<a href="/polls/{{ poll.id }}/" class="btn btn-primary"> Vote again?</a>
     </div>
-
-    <blockquote>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-    </blockquote>
 
     </body>
 

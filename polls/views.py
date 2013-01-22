@@ -18,7 +18,7 @@ from polls.models import Choice, Poll
 
 def index(request):
     latest_poll_list = Poll.objects.all().order_by('-pub_date')[:5]
-    return render_to_response('polls/index.html', {'poll': p},
+    return render_to_response('polls/index.html', {'poll': 'p'},
                                 context_instance=RequestContext(request))
 
 
@@ -60,3 +60,4 @@ def mostralista(request):
     latest_poll_list = Poll.objects.all().order_by('-pub_date')[:5]
     output = '<br>'.join([p.question for p in latest_poll_list])
     return HttpResponse(output) 
+

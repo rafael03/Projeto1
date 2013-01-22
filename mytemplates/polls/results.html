@@ -2,11 +2,15 @@
 <head>
 
 <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-
+<!-- <script type="text/javascript" src="/static/bootstrap/js/teste.js"></script> -->
 </head>
 
 <body>
 <h1>{{ poll.question }}</h1>
+
+    <blockquote>
+    <p>Resultados.</p>
+    </blockquote>
 
 <ul>
 {% for choice in poll.choice_set.all %}
@@ -16,10 +20,6 @@
     <div class="form-actions">
 <a href="/polls/{{ poll.id }}/" class="btn btn-primary"> Vote again?</a>
     </div>
-
-    <blockquote>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-    </blockquote>
 
     </body>
 
