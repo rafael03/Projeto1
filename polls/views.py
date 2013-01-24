@@ -15,6 +15,8 @@ from django.core.urlresolvers import reverse
 from django.template import RequestContext
 from polls.models import Choice, Poll
 
+def home(request):
+    return render_to_response('home.html', context_instance=RequestContext(request))
 
 def index(request):
     latest_poll_list = Poll.objects.all().order_by('-pub_date')[:5]
