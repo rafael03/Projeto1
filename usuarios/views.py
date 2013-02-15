@@ -1,0 +1,24 @@
+from django.template import Context, loader
+from datetime import datetime
+from django.shortcuts import get_object_or_404, render_to_response
+from django.http import HttpResponseRedirect, HttpResponse
+from django.core.urlresolvers import reverse
+from django.template import RequestContext
+from usuarios.models import NovoUsuario
+#from usuarios.ClasseMedia import Media
+
+def index(request):
+    return render_to_response('usuarios/index.html', {'variavel':'p'},
+                            context_instance=RequestContext(request))
+
+def Dados(request):
+    dados = {'nome': 'Rafael',
+            'idade':22,
+            }
+
+    return render_to_response('usuarios/dados.html', { 'variavel':dados}, context_instance=RequestContext(request))
+
+def Imagens(request):
+    p ="Rafael"
+    return render_to_response('usuarios/imagens.html', {'variavel':p},
+                              context_instance=RequestContext(request))

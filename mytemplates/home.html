@@ -1,128 +1,56 @@
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>Projeto Django</title>
-        <!-- Css -->
-        <link rel="stylesheet" href="../static/jquery-ui/css/ui-darkness/jquery-ui-1.10.0.custom.min.css" />
-        <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css" media="screen">
-        <!-- JavaScript -->
-        <script src="../static/jquery-ui/js/jquery-1.9.0.js"></script>
-        <script src="../static/jquery-ui/js/jquery-ui-1.10.0.custom.min.js"></script>
-        <script src="../static/bootstrap/js/bootstrap.min.js"></script>
+	<head>
+		<meta charset="utf-8" />
+		<title>Projeto Django</title>
+		<!-- Css -->
+		<link rel="stylesheet" href="../static/jquery-ui/css/ui-darkness/jquery-ui-1.10.0.custom.min.css" />
+		<link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css" media="screen">
+		<link rel="stylesheet" href="../static/global.css" />
 
-        <!--
-        <link rel="stylesheet" href="../static/jquery-ui/ demos/style.css" />
-        <script src="../static/jquery-ui/js/jquery-1.9.0.js"></script>
-        -->
+		<style type="text/css">
+			html {
+				height: 100%
+			}
+			body {
+				height: 100%;
+				margin: 0;
+				padding: 0
+			}
+			#map_canvas {
+				height: 100%
+			}
+		</style>
+		
+		<!-- JavaScript -->
+		<script src="../static/jquery-ui/js/jquery-1.9.0.js"></script>
+		<script src="../static/jquery-ui/js/jquery-ui-1.10.0.custom.min.js"></script>
+		<script src="../static/bootstrap/js/bootstrap.min.js"></script>
+		<script type="text/javascript"
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGZTCbRh1mQS8xyjbeCBA-tqHvb_lnT9M&sensor=false&region=BR"></script>
+		<script type="text/javascript">
+			function initialize() {
+				var mapOptions = {
+					center : new google.maps.LatLng(-15.786, -47.899),
+					zoom : 12,
+					panControl : true, //Bola Direcional
+					zoomControl : true,
+					mapTypeControl : true,
+					scaleControl : true,
+					streetViewControl : true,
+					overviewMapControl : true,
 
-<style>
+					mapTypeId : google.maps.MapTypeId.HYBRID
+				};
+				var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
 
-.toggler { width: 500px; height: 200px; position: relative; }
-#button { padding: .5em 1em; text-decoration: none; }
-#effect { width: 240px; height: 135px; padding: 0.4em; position: relative; }
-#effect h3 { margin: 0; padding: 0.4em; text-align: center; }
-.ui-effects-transfer { border: 2px dotted gray; }
-</style>
+			}
+		</script>
+	</head>
 
-<script>
-$(function() {
-// run the currently selected effect
-function runEffect() {
-// get effect type from
-var selectedEffect = 'slide'; //$( "#effectTypes" ).val();
-// most effect types need no options passed by default
-var options = {};
-// some effects have required parameters
-if ( selectedEffect === "scale" ) {
-options = { percent: 0 };
-} else if ( selectedEffect === "transfer" ) {
-options = { to: "#button", className: "ui-effects-transfer" };
-} else if ( selectedEffect === "size" ) {
-options = { to: { width: 200, height: 60 } };
-}
-// run the effect
-$( "#effect" ).effect( selectedEffect, options, 500, callback );
-};
-// callback function to bring a hidden box back
-function callback() {
-setTimeout(function() {
-$( "#effect" ).removeAttr( "style" ).hide().fadeIn();
-}, 1000 );
-};
-// set effect from select menu value
-$( "#button" ).click(function() {
-runEffect();
-return false;
-});
-});
-</script>
-
-    </head>
-
-    <body>
-        <div class="toggler">
-        <div id="effect" class="ui-widget-content ui-corner-all">
-            <h3 class="ui-widget-header ui-corner-all">Efeito </h3>
-            <p>
-Caida de Texto para o Efeito
-            </p>
-        </div>
-        </div>
-
-<!--
-            <select name="effects" id="effectTypes">
-                <option value="blind">Blind</option>
-                <option value="bounce">Bounce</option>
-                <option value="clip">Clip</option>
-                <option value="drop">Drop</option>
-                <option value="explode">Explode</option>
-                <option value="fade">Fade</option>
-                <option value="fold">Fold</option>
-                <option value="highlight">Highlight</option>
-                <option value="puff">Puff</option>
-                <option value="pulsate">Pulsate</option>
-                <option value="scale">Scale</option>
-                <option value="shake">Shake</option>
-                <option value="size">Size</option>
-                <option value="slide">Slide</option>
-                <option value="transfer">Transfer</option>
-            </select>
--->
-            <a href="#" id="button" class="ui-state-default ui-corner-all">Run Effect</a>
-
-
-
-
-
-
-
-
-    <!-- Button to trigger modal -->
-    <a href="#myModal" role="button" class="btn" data-toggle="modal">Launch demo modal</a>
-     
-    <!-- Modal -->
-    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">Modal header</h3>
-    </div>
-    <div class="modal-body">
-    <p>One fine body…</p>
-    </div>
-    <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-    <button class="btn btn-primary">Save changes</button>
-    </div>
-    </div>
-
-
-    <div class="dropdown">
-    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Dropdown trigger</a>
-    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-    ...
-    </ul>
-    </div>
-
-
-    </body>
+	<body onload="initialize()">
+<div id="titulo">
+<h1><center>Google Maps <br> Rafael 2.0</center></h1>
+</div>
+    <div id="map_canvas" style="width:100%; height:70%"></div>
+	</body>
 </html>

@@ -1,0 +1,22 @@
+.fundo-home {
+    background: #000;
+
+}
+
+.div-home{
+background:url("../static/imagens/supermario-terra.jpg");
+background-size:100% 100%;
+background-repeat:no-repeat;
+height:80%;
+width:80%;
+-webkit-border-radius: 40px;
+border-radius: 40px; 
+position:absolute;
+left:10%;
+top:10%;
+}
+.border-radius {
+-webkit-border-radius: 40px;
+border-radius: 40px; 
+}
+

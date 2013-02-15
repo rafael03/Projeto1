@@ -15,9 +15,11 @@
     </head>
 
     <body class="#fundo-home">
+<h1>Ola</h1>
 
-
-
+{% for x in horario %}
+    {{ horario.nome }} <br>
+{% endfor %}
 
 
 

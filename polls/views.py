@@ -5,7 +5,7 @@ from django.template import Context, loader
 #from django.http import HttpResponse
 #from django.shortcuts import render_to_response, get_object_or_404
 #from django.http import Http404
-#from datetime import datetime
+from datetime import datetime
 #from django.template import RequestContext
 ####################################################
 
@@ -54,9 +54,11 @@ def vote(request, poll_id):
         return HttpResponseRedirect(reverse('polls.views.results', args=(p.id,)))
 
 
-def exibir(request, poll_id):
-    horario = datetime.now()
-    return HttpResponse(horario)
+def exibir(request):
+#    p = datetime.now()
+    p = {'nome': 'Rafael', 'idade':22 , 'cidade': 'ceilandia' }
+    return render_to_response('polls/exibir.html',{ 'horario':p }, context_instance=RequestContext(request))
+
 
 def mostralista(request):
     latest_poll_list = Poll.objects.all().order_by('-pub_date')[:5]
