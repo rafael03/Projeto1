@@ -1,0 +1,20 @@
+<html>
+	<head>
+		<title>Titulo</title>
+	</head>
+	
+	<body>
+		OPrimeiro Nome:	{{ dados.PrimeiroNome }}<br>
+		Segundo Nome: 	{{ dados.SegundoNome}} 	<br>
+		Cidade:			{{ dados.Cidade}}		<br>
+		Telefone:		{{ dados.Telefone}}		<br>
+		Mensagem: 		{{dados.Mensagem}}
+		<br><br><br>
+		{% for x in dados %}
+			{{dados.PrimeiroNome}}<br>
+			{{ x.PrimeiroNome }}
+		{% endfor %}
+		<br>
+		</body>
+		
+</html>

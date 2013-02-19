@@ -28,8 +28,9 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^$', 'polls.views.home'),
-    url(r'^polls/', include('polls.urls')),
-    url(r'^usuarios/', include('usuarios.urls')),
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^polls/',         include('polls.urls')),
+    url(r'^usuarios/',      include('usuarios.urls')),
+    url(r'^TesteModels/',   include('TesteModels.urls')),
+    url(r'^admin/',         include(admin.site.urls)),
     url(r'^media/(.*)$', 'django.views.static.serve'),
 )
